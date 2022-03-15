@@ -1,5 +1,5 @@
-import createPeson from './create_person';
+import createPerson from './create_person';
 
 export default {
-    createPeson
+    createPerson
 };
