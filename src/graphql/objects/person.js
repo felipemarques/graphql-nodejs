@@ -1,20 +1,30 @@
-import { GraphQLID, GraphQLObjectType, GraphQLString } from "graphql";
+import { 
+    GraphQLObjectType,
+    GraphQLID,
+    GraphQLString
+} from 'graphql';
 
+/*
+`type Person {
+    id: ID,
+    name: String
+}`
+*/
 export default new GraphQLObjectType({
-  name: "",
-  description: "",
-  fields() {
-    return {
-      id: {
-        type: GraphQLID,
-        description: "Unique id",
-        resolve: () => 2,
-      },
-      name: {
-        type: GraphQLString,
-        description: "Name",
-        resolve: () => 'Felipe',
-      },
-    };
-  },
+    name: 'Person',
+    description: 'Define a Person Object',
+    fields() {
+        return {
+            id: {
+                type: GraphQLID,
+                description: 'Unique ID',
+                resolve: (person) => person.id
+            },
+            name: { 
+                type: GraphQLString,
+                description: 'Person name',
+                resolve: (person) => person.name
+            }
+        }
+    }
 });
